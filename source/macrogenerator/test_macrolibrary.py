@@ -21,6 +21,15 @@ class TestMacrolibrary(unittest.TestCase):
         current_lvl = 0
         try:
             self.macrolibrary.decrease_level()
-            self.assertTrue(True, "Macrolibrary.decrease_level does not raised IndexError")
-        except IndexError:
+            self.assertTrue(True)
             self.assertTrue(False, "Macrolibrary.decrease_level raised IndexError")
+
+    def test_insert(self):
+        self.macrolibrary.insert(("COMPILE", "g++"))
+        zero_level_macrodef_cnt = 1
+        self.assertEqual(len(self.macrolibrary.library[0]), zero_level_macrodef_cnt)
+        
+        with self.assertRaises(ValueError):
+             self.macrolibrary.insert((1, 2, 3))
+        with self.assertRaises(TypeError):
+            self.macrolibrary.insert((1, 2))

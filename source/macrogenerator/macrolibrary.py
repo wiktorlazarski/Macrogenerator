@@ -15,7 +15,17 @@ class Macrolibrary:
             pass
 
     def insert(self, macrodef: tuple)->None:
-        pass
+        MNAME_IDX = 0
+        MBODY_IDX = 1
+        
+        if len(macrodef) != 2:
+            raise ValueError("insert requires tuple of two strings")
+
+        if not (isinstance(macrodef[MNAME_IDX], str) or isinstance(macrodef[MBODY_IDX], str)):
+            raise TypeError("insert requires tuple of two strings")
+        
+        self.library[-1][macrodef[MNAME_IDX]] = macrodef[MBODY_IDX]
+
 
     @property
     def library(self):
