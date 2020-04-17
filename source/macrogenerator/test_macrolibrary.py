@@ -45,3 +45,7 @@ class TestMacrolibrary(unittest.TestCase):
         flevel_macrodef = ("NAME", "main.cpp")
         self.macrolibrary.insert(flevel_macrodef)
         self.assertEqual("main.cpp", self.macrolibrary.library[1]["NAME"])
+
+        self.macrolibrary.decrease_level()
+        with self.assertRaises(RuntimeError):
+            self.macrolibrary.mbody("NAME")

@@ -6,6 +6,8 @@ class Macrolibrary:
         for lvl_definitions in self.library:
             if mname in lvl_definitions:
                 return lvl_definitions[mname]
+        
+        raise RuntimeError("Unknown macrodefinition name")
 
     def increase_level(self)->None:
         self._library.append({})
