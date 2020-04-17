@@ -22,6 +22,7 @@ class TestMacrolibrary(unittest.TestCase):
         try:
             self.macrolibrary.decrease_level()
             self.assertTrue(True)
+        except IndexError:
             self.assertTrue(False, "Macrolibrary.decrease_level raised IndexError")
 
     def test_insert(self):
@@ -33,3 +34,14 @@ class TestMacrolibrary(unittest.TestCase):
              self.macrolibrary.insert((1, 2, 3))
         with self.assertRaises(TypeError):
             self.macrolibrary.insert((1, 2))
+
+    def test_mbody(self):
+        self.macrolibrary.insert(("COMPILE", "g++"))
+        mbody = self.macrolibrary.mbody("COMPILE")
+
+        self.assertEqual(mbody, "g++")
+
+        self.macrolibrary.increase_level()
+        flevel_macrodef = ("NAME", "main.cpp")
+        self.macrolibrary.insert(flevel_macrodef)
+        self.assertEqual("main.cpp", self.macrolibrary.library[1]["NAME"])

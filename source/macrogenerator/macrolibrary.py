@@ -3,7 +3,9 @@ class Macrolibrary:
         self._library = [{}]
     
     def mbody(self, mname: str)->str:
-        pass
+        for lvl_definitions in self.library:
+            if mname in lvl_definitions:
+                return lvl_definitions[mname]
 
     def increase_level(self)->None:
         self._library.append({})
@@ -17,7 +19,7 @@ class Macrolibrary:
     def insert(self, macrodef: tuple)->None:
         MNAME_IDX = 0
         MBODY_IDX = 1
-        
+
         if len(macrodef) != 2:
             raise ValueError("insert requires tuple of two strings")
 
