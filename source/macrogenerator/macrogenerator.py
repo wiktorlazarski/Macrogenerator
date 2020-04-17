@@ -8,7 +8,9 @@ class Macrogenerator:
         self.library = Macrolibrary()
 
     def transform(self, source_text: str)->str:
-        pass
+        output_text = ""
+        # TRANSFORM ALGORITHM
+        return output_text
 
     def __macrodefinition(self)->None:
         pass
