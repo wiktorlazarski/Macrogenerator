@@ -1,5 +1,5 @@
 def main():
-    print("Welcome Macrogenerator")
+    print("Hello Macrogenerator")
 
 if __name__ == "__main__":
     main()

@@ -1,4 +1,4 @@
-from .macrolibrary import Macrolibrary
+from macrolibrary import Macrolibrary
 
 class Macrogenerator:
     _MACRODEF_DISCRIMINANT = '&'
