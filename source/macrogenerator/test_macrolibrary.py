@@ -2,6 +2,10 @@ import unittest
 from .macrolibrary import Macrolibrary
 
 class TestMacrolibrary(unittest.TestCase):
+    '''
+        Test cases class of Macrolibrary class used in macrogenerator module.
+    '''
+
     def __init__(self, *args, **kwargs):
         super(TestMacrolibrary, self).__init__(*args, **kwargs)
         self.macrolibrary = Macrolibrary()

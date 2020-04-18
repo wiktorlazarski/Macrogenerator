@@ -1,6 +1,8 @@
 from .macrolibrary import Macrolibrary
 
 class Macrogenerator:
+    '''Class provides macrogenerator functionality.'''
+
     _MACRODEF_DISCRIMINANT = '&'
     _MACROCALL_DISCRIMINANT = '$'
 
@@ -8,6 +10,14 @@ class Macrogenerator:
         self.library = Macrolibrary()
 
     def transform(self, source_text: str)->str:
+        '''Transform input source text into output text.
+            
+            Parameters:
+            source_text (str): source text containing macrodefinition/macrocalls/free texts.
+
+            Returns:
+            str: transformed text
+        '''
         output_text = ""
 
         idx = 0
@@ -29,6 +39,14 @@ class Macrogenerator:
         return output_text
 
     def _macrodefinition(self, text: str)->tuple:
+        '''Processes with macrodefinition when '&'-macrodefinition discriminant met.
+            
+            Parameters:
+            text (str): not already processed source text.
+
+            Returns:
+            tuple: containg tuple=(mname, mbody) and offset, which represent number of character used while processing macrodefinition. 
+        '''
         offset = 0
         mname, mname_offset = self._extract_mname(text)
         offset += mname_offset
@@ -41,6 +59,14 @@ class Macrogenerator:
         return ((mname, mbody), offset)
 
     def _extract_mname(self, text: str)->tuple:
+        '''Extract macrodefinition or macrocall name for further processing.
+            
+            Parameters:
+            text (str): not already processed source text.
+
+            Returns:
+            tuple: containg macrodefinition name and offset, which represent number of character used while processing macrodefinition name. 
+        '''
         retv = ""
 
         offset = 0
@@ -59,6 +85,14 @@ class Macrogenerator:
         return (retv, offset)
 
     def _extract_mbody(self, text: str)->tuple:
+        '''Extract macrodefinition body for further processing.
+            
+            Parameters:
+            text (str): not already processed source text.
+
+            Returns:
+            tuple: containg macrodefinition body and offset, which represent number of character used while processing macrodefinition body. 
+        '''
         retv = ""
 
         offset = 0
@@ -84,6 +118,14 @@ class Macrogenerator:
         return (retv, offset)
 
     def _macrocall(self, mname: str)->str:
+        '''Processes with macrocall when '$'-macrocall discriminant met.
+            
+            Parameters:
+            mname (str): name of macrodefinition.
+
+            Returns:
+            str: free text resulted from macrocall. 
+        '''
         self.library.increase_level()
         mbody = self.library.mbody(mname)
         retv = self.transform(mbody)

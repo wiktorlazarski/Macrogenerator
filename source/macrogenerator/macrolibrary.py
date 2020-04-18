@@ -1,4 +1,6 @@
 class Macrolibrary:
+    '''Class represents macrolibrary used in macrogenerator class.'''
+
     def __init__(self):
         self._library = [{}]
     
@@ -10,15 +12,22 @@ class Macrolibrary:
         raise RuntimeError(f"unknown macrodefinition name: {mname}")
 
     def increase_level(self)->None:
+        '''Increased text level by appending empty dict to the list representing library.'''
         self._library.append({})
 
     def decrease_level(self)->None:
+        '''Decreased text level by popping dict from the list representing library.'''
         try :
             self._library.pop()
         except IndexError :
             return
 
     def insert(self, macrodef: tuple)->None:
+        '''Inserts new macrodefinition at the currently specified text level.
+            
+            Parameters:
+            macrodef (tuple): tuple containg two strings representing consequitivly macroname and macrobody.
+        '''
         MNAME_IDX = 0
         MBODY_IDX = 1
 

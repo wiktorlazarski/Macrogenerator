@@ -1,3 +1,9 @@
+'''
+    Script allowing user to test macrogenerator by passing source text as a command line.
+
+    Created by Wiktor Lazarski 18/04/2020  
+'''
+
 import sys
 from .macrogenerator import Macrogenerator
 

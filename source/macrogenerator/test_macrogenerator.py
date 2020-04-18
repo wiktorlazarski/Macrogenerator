@@ -2,6 +2,10 @@ import unittest
 from .macrogenerator import Macrogenerator
 
 class TestMacrogenerator(unittest.TestCase):
+    '''
+        Test cases class of Macrogenerator class used in macrogenerator module.
+    '''
+
     def __init__(self, *args, **kwargs):
         super(TestMacrogenerator, self).__init__(*args, **kwargs)
         self.macrogenerator = Macrogenerator()
