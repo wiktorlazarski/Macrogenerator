@@ -7,7 +7,7 @@ class Macrolibrary:
             if mname in lvl_definitions:
                 return lvl_definitions[mname]
         
-        raise RuntimeError(f"Unknown macrodefinition name: {mname}")
+        raise RuntimeError(f"unknown macrodefinition name: {mname}")
 
     def increase_level(self)->None:
         self._library.append({})
@@ -16,7 +16,7 @@ class Macrolibrary:
         try :
             self._library.pop()
         except IndexError :
-            pass
+            return
 
     def insert(self, macrodef: tuple)->None:
         MNAME_IDX = 0
