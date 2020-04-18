@@ -1,5 +1,8 @@
+from .macrogenerator import Macrogenerator
+
 def main():
-    print("Hello Macrogenerator")
+    print("Welcome Macrogenerator")
+
 
 if __name__ == "__main__":
     main()
