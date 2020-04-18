@@ -3,7 +3,7 @@ from .macrogenerator import Macrogenerator
 
 class TestMacrogenerator(unittest.TestCase):
     '''
-        Test cases class of Macrogenerator class used in macrogenerator module.
+        Test cases of Macrogenerator class used in macrogenerator module.
     '''
 
     def __init__(self, *args, **kwargs):

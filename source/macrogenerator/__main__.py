@@ -1,5 +1,5 @@
 '''
-    Script allowing user to test macrogenerator by passing source text as a command line.
+    Script allowing user to test macrogenerator by passing source text as a command line argument.
 
     Created by Wiktor Lazarski 18/04/2020  
 '''

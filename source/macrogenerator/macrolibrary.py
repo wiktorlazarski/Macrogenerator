@@ -5,6 +5,14 @@ class Macrolibrary:
         self._library = [{}]
     
     def mbody(self, mname: str)->str:
+        '''Returns macrodefinition body based on name priorities by text level.
+            
+            Parameters:
+            mname (str): macrodefinition name which body we want to return.
+
+            Returns:
+            str: macrodefinition body
+        '''
         for lvl_definitions in reversed(self.library):
             if mname in lvl_definitions:
                 return lvl_definitions[mname]
@@ -26,7 +34,7 @@ class Macrolibrary:
         '''Inserts new macrodefinition at the currently specified text level.
             
             Parameters:
-            macrodef (tuple): tuple containg two strings representing consequitivly macroname and macrobody.
+            macrodef (tuple): tuple containg two strings representing consecutively macroname and macrobody.
         '''
         MNAME_IDX = 0
         MBODY_IDX = 1

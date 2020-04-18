@@ -3,7 +3,7 @@ from .macrolibrary import Macrolibrary
 
 class TestMacrolibrary(unittest.TestCase):
     '''
-        Test cases class of Macrolibrary class used in macrogenerator module.
+        Test cases of Macrolibrary class used in macrogenerator module.
     '''
 
     def __init__(self, *args, **kwargs):
