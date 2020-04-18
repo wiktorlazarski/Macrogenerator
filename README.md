@@ -70,9 +70,9 @@ Example 1: Basic macrodefinition and macrocall._
 
 | **Input** | **Output** |
 | --- | --- |
-| &amp;COMPILER g++ &amp; $COMPILE | _g++_ |
+| &amp;COMPILE g++ &amp; $COMPILE | _g++_ |
 
-Where, &quot;_COMPILER_&quot; is a macrodefinition name, &quot;_g++_&quot; - is a macrodefinition body.
+Where, &quot;_COMPILE_&quot; is a macrodefinition name, &quot;_g++_&quot; - is a macrodefinition body.
 
 Example 2: Nesting macrodefinition.
 
