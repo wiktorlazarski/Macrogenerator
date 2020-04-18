@@ -88,4 +88,6 @@ Example 3: Invalid nesting of macrodefinition.
 | --- | --- |
 | &amp;COMPILE gcc­ -c  &amp;main.cpp $ COMPILE | _ERROR_ |
 
-Because of macrogenerator previous assumption, about specifying starting macrodefinition &#39;&amp;&#39; and ending one, _main.cpp_ will not be treated as a _free text_ but as a new macrodefinition name . Further source text processing will cause an error because there are no macrodefinition closing discriminants (&#39;&amp;&#39;).
+Because of macrogenerator previous assumption, about specifying starting macrodefinition &#39;&amp;&#39; and ending one, _main.cpp_ will not be treated as a _free text_ but as a new macrodefinition name . Further source text processing will cause an error because there are no macrodefinition closing discriminants (&#39;&amp;&#39;). <br /> <br />
+
+Full documentation: https://github.com/wiktorlazarski/Macrogenerator/blob/master/docs/ECOTE%20Final%20project.pdf
