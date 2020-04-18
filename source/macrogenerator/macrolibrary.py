@@ -3,11 +3,11 @@ class Macrolibrary:
         self._library = [{}]
     
     def mbody(self, mname: str)->str:
-        for lvl_definitions in self.library:
+        for lvl_definitions in reversed(self.library):
             if mname in lvl_definitions:
                 return lvl_definitions[mname]
         
-        raise RuntimeError("Unknown macrodefinition name")
+        raise RuntimeError(f"Unknown macrodefinition name: {mname}")
 
     def increase_level(self)->None:
         self._library.append({})
