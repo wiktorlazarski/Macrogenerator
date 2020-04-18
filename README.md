@@ -1,7 +1,5 @@
 # Compiling Techniques – Macrogenerator
 
-### Author: Wiktor Łazarski
-
 ## General overview and assumptions
 
 An assignment is to design macrogenerator which does not allow to specify any parameters in macrodefinition. However, what is special about this macrogenerator is that it processes macrodefinition without parameters but it can be overcome using nested macrodefinitions which are supported by this macrogenerator.
