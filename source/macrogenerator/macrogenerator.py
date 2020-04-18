@@ -80,7 +80,7 @@ class Macrogenerator:
                 raise RuntimeError("ERROR: extracting - end of source text")
             
         if not retv:
-            raise RuntimeError("ERROR: Macrobody unspecified")
+            raise RuntimeError("ERROR: macrobody unspecified")
         return (retv, offset)
 
     def _macrocall(self, mname: str)->str:
