@@ -70,7 +70,7 @@ Example 1: Basic macrodefinition and macrocall._
 
 | **Input** | **Output** |
 | --- | --- |
-| **&amp;**COMPILER g++ **&amp;** $COMPILE | _g++_ |
+| **&amp;**COMPILER g++ &amp; $COMPILE | _g++_ |
 
 Where, &quot;_COMPILER_&quot; is a macrodefinition name, &quot;_g++_&quot; - is a macrodefinition body.
 
@@ -78,7 +78,7 @@ Example 2: Nesting macrodefinition.
 
 | **Input** | **Output** |
 | --- | --- |
-| **&amp;**COMPILE gcc­ -c **&amp;**NAME main.cpp**&amp;** $NAME **&amp;** $COMPILE | _gcc -c main.cpp_ |
+| &amp;COMPILE gcc­ -c &amp;NAME main.cpp**&amp;** $NAME &amp; $COMPILE | _gcc -c main.cpp_ |
 
 &quot;_COMPILE&quot;_ is outer macrodefinition and &quot;_NAME&quot;_ is a nested macrodefinition.
 
@@ -86,6 +86,6 @@ Example 3: Invalid nesting of macrodefinition.
 
 | **Input** | **Output** |
 | --- | --- |
-| **&amp;**COMPILE gcc­ -c  **&amp;**main.cpp **$** COMPILE | _ERROR_ |
+| &amp;COMPILE gcc­ -c  &amp;main.cpp $ COMPILE | _ERROR_ |
 
 Because of macrogenerator previous assumption, about specifying starting macrodefinition &#39;&amp;&#39; and ending one, _main.cpp_ will not be treated as a _free text_ but as a new macrodefinition name . Further source text processing will cause an error because there are no macrodefinition closing discriminants (&#39;&amp;&#39;).
