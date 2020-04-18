@@ -1,5 +1,4 @@
 from .macrolibrary import Macrolibrary
-import sys
 
 class Macrogenerator:
     _MACRODEF_DISCRIMINANT = '&'
@@ -17,13 +16,9 @@ class Macrogenerator:
             idx += 1
 
             if char == self.MACRODEF_DISCRIMINANT: #macrodefinition
-                mname, offset = self.extract_mname(source_text[idx:])
+                macrodef, offset = self.macrodefinition(source_text[idx:])
+                self.library.insert(macrodef)
                 idx += offset
-                mbody, offset = self.extract_mbody(source_text[idx:])
-                idx += offset
-                if source_text[idx].isspace():
-                    idx += 1
-                self.library.insert((mname, mbody))
             elif char == self.MACROCALL_DISCRIMINANT: #macrocall
                 mname, offset = self.extract_mname(source_text[idx:])
                 idx += offset
@@ -32,6 +27,18 @@ class Macrogenerator:
                 output_text += char
 
         return output_text
+
+    def macrodefinition(self, text: str)->tuple:
+        offset = 0
+        mname, mname_offset = self.extract_mname(text)
+        offset += mname_offset
+        mbody, mbody_offset = self.extract_mbody(text[offset:])
+        offset += mbody_offset
+        # preserves macrocall discriminant or removes whitespace
+        if text[offset].isspace():
+            offset += 1
+        
+        return ((mname, mbody), offset)
 
     def extract_mname(self, text: str)->tuple:
         offset = 0
@@ -63,10 +70,10 @@ class Macrogenerator:
                     break
                 elif char == self.MACRODEF_DISCRIMINANT and text[offset].isalpha():
                     out_text += char
-                    nested_macrodef, nested_off = self.extract_mbody(text[offset:])
+                    nested_macrodef, nested_offset = self.extract_mbody(text[offset:])
                     out_text += nested_macrodef
                     out_text += self.MACRODEF_DISCRIMINANT
-                    offset += nested_off
+                    offset += nested_offset
                 else:
                     out_text += char
             except IndexError:
