@@ -86,7 +86,7 @@ Example 3: Invalid nesting of macrodefinition.
 
 | **Input** | **Output** |
 | --- | --- |
-| &amp;COMPILE gcc­ -c  &amp;main.cpp $ COMPILE | _ERROR_ |
+| &amp;COMPILE gcc­ -c  &amp;main.cpp $COMPILE | _ERROR_ |
 
 Because of macrogenerator previous assumption, about specifying starting macrodefinition &#39;&amp;&#39; and ending one, _main.cpp_ will not be treated as a _free text_ but as a new macrodefinition name . Further source text processing will cause an error because there are no macrodefinition closing discriminants (&#39;&amp;&#39;). <br /> <br />
 
